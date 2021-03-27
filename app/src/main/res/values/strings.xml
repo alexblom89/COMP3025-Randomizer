@@ -5,4 +5,7 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="the_randomizer">THE RANDOMIZER</string>
+    <string name="add_new_set">Add New Set</string>
+    <string name="save">Save</string>
+    <string name="enter_set_name">Enter Set Name</string>
 </resources>
