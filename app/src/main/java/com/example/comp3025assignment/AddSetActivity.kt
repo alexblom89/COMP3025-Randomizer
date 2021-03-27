@@ -40,5 +40,9 @@ class AddSetActivity : AppCompatActivity() {
                 Toast.makeText(this, "Set needs a name!", Toast.LENGTH_LONG).show()
             }
         }
+
+        binding.backToSelectSetViewFAB.setOnClickListener {
+            finish()
+        }
     }
 }

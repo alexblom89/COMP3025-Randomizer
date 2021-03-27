@@ -1,5 +1,6 @@
 package com.example.comp3025assignment
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -16,6 +17,9 @@ class SelectSetActivity : AppCompatActivity() {
         binding = ActivitySelectSetBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.addNewSetButton.setOnClickListener {
+            val intent = Intent(this, AddSetActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

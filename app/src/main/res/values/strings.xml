@@ -8,4 +8,6 @@
     <string name="add_new_set">Add New Set</string>
     <string name="save">Save</string>
     <string name="enter_set_name">Enter Set Name</string>
+    <string name="randomize">Randomize</string>
+    <string name="edit_set">Edit Set</string>
 </resources>
