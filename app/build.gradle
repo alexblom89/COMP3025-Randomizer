@@ -56,4 +56,8 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation platform('com.google.firebase:firebase-bom:26.0.0')
     implementation 'com.google.firebase:firebase-auth-ktx'
+
+    //To save a selection / multi-select in recyclerview.
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
+
 }

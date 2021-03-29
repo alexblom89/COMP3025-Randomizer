@@ -10,4 +10,7 @@
     <string name="enter_set_name">Enter Set Name</string>
     <string name="randomize">Randomize</string>
     <string name="edit_set">Edit Set</string>
+    <string name="enter_new_item">Enter New Item</string>
+    <string name="add_item">Add Item</string>
+    <string name="delete_item">Delete Item</string>
 </resources>

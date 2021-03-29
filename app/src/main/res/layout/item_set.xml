@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    android:gravity="center"
     android:layout_margin="@dimen/list_element_margin"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:background="@drawable/item_background">
 
     <TextView
         android:id="@+id/setNameTextView"

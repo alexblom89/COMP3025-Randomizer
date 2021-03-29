@@ -5,19 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.selection.ItemDetailsLookup
+import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
 import com.example.comp3025assignment.models.Set
 
-class SetListRVAdapter (val context: Context,
-                        val sets : List<Set>,
-                        val itemListener : SetItemListener) : RecyclerView.Adapter<SetListRVAdapter.SetViewHolder>()
+class SetListRVAdapter(
+    val context: Context,
+    val sets: List<Set>,
+    val itemListener: SetItemListener
+) : RecyclerView.Adapter<SetListRVAdapter.SetViewHolder>()
 {
-    inner class SetViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+    private val selectedPos = RecyclerView.NO_POSITION
+
+    inner class SetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val setNameTextView = itemView.findViewById<TextView>(R.id.setNameTextView)
     }
 
     interface SetItemListener {
-        fun setSelected(set : Set)
+        fun setSelected(set: Set)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SetViewHolder {
@@ -28,6 +34,7 @@ class SetListRVAdapter (val context: Context,
 
     override fun onBindViewHolder(holder: SetViewHolder, position: Int) {
         val set = sets[position]
+
         with(holder) {
             setNameTextView.text = set.name
         }
@@ -35,6 +42,9 @@ class SetListRVAdapter (val context: Context,
         holder.itemView.setOnClickListener {
             itemListener.setSelected(set)
         }
+
+        holder.itemView.isSelected = selectedPos == position
+
     }
 
     override fun getItemCount(): Int {
