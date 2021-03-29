@@ -13,7 +13,7 @@ class SetItemListViewModel(setID: String) : ViewModel() {
     }
 
     init {
-        val db = FirebaseFirestore.getInstance().collection("items")
+        val db = FirebaseFirestore.getInstance().collection("setItems")
             .whereEqualTo("setID", setID)
 
         db.addSnapshotListener { documents, exception ->
