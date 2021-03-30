@@ -43,6 +43,11 @@ class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener 
             startActivity(intent)
         }
 
-
+        binding.randomizeButton.setOnClickListener {
+            val intent = Intent(this, RandomizeSetActivity::class.java)
+            intent.putExtra("setID", set.setID)
+            intent.putExtra("setName", set.name)
+            startActivity(intent)
+        }
     }
 }

@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.selection.ItemDetailsLookup
-import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
 import com.example.comp3025assignment.models.Set
 
@@ -16,7 +14,7 @@ class SetListRVAdapter(
     val itemListener: SetItemListener
 ) : RecyclerView.Adapter<SetListRVAdapter.SetViewHolder>()
 {
-    private val selectedPos = RecyclerView.NO_POSITION
+    private var selectedPos= -1
 
     inner class SetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val setNameTextView = itemView.findViewById<TextView>(R.id.setNameTextView)
@@ -41,14 +39,16 @@ class SetListRVAdapter(
 
         holder.itemView.setOnClickListener {
             itemListener.setSelected(set)
+            selectedPos = position
+            notifyDataSetChanged()
         }
 
         holder.itemView.isSelected = selectedPos == position
+
 
     }
 
     override fun getItemCount(): Int {
         return sets.size
     }
-
 }

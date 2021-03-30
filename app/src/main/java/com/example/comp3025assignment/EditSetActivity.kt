@@ -8,11 +8,13 @@ import com.example.comp3025assignment.databinding.ActivityEditSetBinding
 import com.example.comp3025assignment.models.SetItem
 import com.google.firebase.firestore.FirebaseFirestore
 
-class EditSetActivity : AppCompatActivity() {
+class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemListener {
     private lateinit var binding : ActivityEditSetBinding
 
     private lateinit var viewModel: SetItemListViewModel
     private lateinit var viewModelFactory: SetItemViewModelFactory
+
+    private val db = FirebaseFirestore.getInstance().collection("setItems")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +27,7 @@ class EditSetActivity : AppCompatActivity() {
         binding.addItemButton.setOnClickListener {
             if (binding.addNewSetItemEditText.text.toString().isNotEmpty())
             {
-                val db = FirebaseFirestore.getInstance().collection("setItems")
+                //val db = FirebaseFirestore.getInstance().collection("setItems")
                 val id = db.document().id
 
                 val newSetItem = SetItem(id, binding.addNewSetItemEditText.text.toString(), setID)
@@ -42,9 +44,20 @@ class EditSetActivity : AppCompatActivity() {
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(SetItemListViewModel::class.java)
             viewModel.getSetItems().observe(this, { setItems ->
-                var recyclerAdapter = SetItemListRVAdapter(this, setItems)
+                var recyclerAdapter = SetItemListRVAdapter(this, setItems, this)
                 binding.editSetRecyclerView.adapter = recyclerAdapter
             })
+        }
+    }
+
+    override fun setItemSelected(setItem: SetItem) {
+        binding.deleteItemButton.setOnClickListener {
+            setItem.setItemID?.let {
+                it1 -> db.document(it1)
+                .delete()
+                .addOnSuccessListener { Toast.makeText(this, "Set Item Deleted", Toast.LENGTH_LONG).show() }
+                .addOnFailureListener { Toast.makeText(this, "Set Item Could Not Be Deleted", Toast.LENGTH_LONG).show() }
+            }
         }
     }
 }
