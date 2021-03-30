@@ -33,7 +33,7 @@ class AddSetActivity : AppCompatActivity() {
                         }
                         .addOnFailureListener {
                             Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
-                            this.recreate()
+                            binding.newSetNameEditText.setText("")
                         }
             } else {
                 Toast.makeText(this, "Set needs a name!", Toast.LENGTH_LONG).show()

@@ -2,6 +2,7 @@ package com.example.comp3025assignment
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.comp3025assignment.databinding.ActivitySelectSetBinding
@@ -26,10 +27,13 @@ class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener 
             val intent = Intent(this, AddSetActivity::class.java)
             startActivity(intent)
         }
+
+        binding.randomizeButton.setOnClickListener {
+            Toast.makeText(this, "Please Select a Set", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun setSelected(set: Set) {
-
         binding.editSetButton.setOnClickListener {
             val intent = Intent(this, EditSetActivity::class.java)
             intent.putExtra("setID", set.setID)
