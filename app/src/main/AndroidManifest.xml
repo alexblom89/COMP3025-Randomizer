@@ -9,16 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.COMP3025Assignment">
-        <activity android:name=".RandomizeSetActivity"></activity>
-        <activity android:name=".EditSetActivity" />
-        <activity android:name=".AddSetActivity" />
-        <activity android:name=".SelectSetActivity">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RandomizeSetActivity" />
+        <activity android:name=".EditSetActivity" />
+        <activity android:name=".AddSetActivity" />
+        <activity android:name=".SelectSetActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

@@ -1,17 +1,11 @@
 package com.example.comp3025assignment
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.recyclerview.selection.SelectionPredicates
-import androidx.recyclerview.selection.SelectionTracker
-import androidx.recyclerview.selection.StableIdKeyProvider
-import androidx.recyclerview.selection.StorageStrategy
+import androidx.appcompat.app.AppCompatActivity
 import com.example.comp3025assignment.databinding.ActivitySelectSetBinding
 import com.example.comp3025assignment.models.Set
-import com.google.firebase.firestore.FirebaseFirestore
 
 class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener {
 

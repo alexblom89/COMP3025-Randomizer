@@ -1,11 +1,11 @@
 package com.example.comp3025assignment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.comp3025assignment.databinding.ActivityRandomizeSetBinding
-import com.example.comp3025assignment.models.SetItem
-import java.util.*
+
 
 
 class RandomizeSetActivity : AppCompatActivity() {
@@ -21,14 +21,35 @@ class RandomizeSetActivity : AppCompatActivity() {
 
         val setID = intent.getStringExtra("setID")
 
-        setID?.let {
-            viewModelFactory = SetItemViewModelFactory(setID)
+        getRandomItem(setID)
+
+        binding.randomizeAgainButton.setOnClickListener {
+            getRandomItem(setID)
+        }
+
+        binding.chooseSetButton.setOnClickListener {
+            val intent = Intent(this, SelectSetActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    /**
+     * This method gets the SetItems associated with the SetID from the Intent, and assigns
+     * a random one to randomItem variable. The if statement checks if the assignment is the same as
+     * the currently assigned item, and if so calls the function again until a new item has been
+     * assigned.
+     */
+    private fun getRandomItem(id: String?) {
+        id?.let {
+            viewModelFactory = SetItemViewModelFactory(id)
             viewModel = ViewModelProvider(this, viewModelFactory).get(SetItemListViewModel::class.java)
             viewModel.getSetItems().observe(this, { items ->
                 val randomItem = items.random()
-                binding.randomSetItemTextView.text = randomItem.name
+                if(randomItem.name == binding.randomSetItemTextView.text)
+                    getRandomItem(id)
+                else
+                    binding.randomSetItemTextView.text = randomItem.name
             })
         }
     }
-    //TODO: Hook up buttons.
 }
