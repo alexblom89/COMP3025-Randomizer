@@ -1,8 +1,11 @@
 package com.example.comp3025assignment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.comp3025assignment.databinding.ActivityRandomizeSetBinding
+import com.example.comp3025assignment.models.SetItem
+import java.util.*
 
 
 class RandomizeSetActivity : AppCompatActivity() {
@@ -17,7 +20,15 @@ class RandomizeSetActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val setID = intent.getStringExtra("setID")
+
+        setID?.let {
+            viewModelFactory = SetItemViewModelFactory(setID)
+            viewModel = ViewModelProvider(this, viewModelFactory).get(SetItemListViewModel::class.java)
+            viewModel.getSetItems().observe(this, { items ->
+                val randomItem = items.random()
+                binding.randomSetItemTextView.text = randomItem.name
+            })
+        }
     }
-
-
+    //TODO: Hook up buttons.
 }
