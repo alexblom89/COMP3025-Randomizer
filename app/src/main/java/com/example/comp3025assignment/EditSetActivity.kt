@@ -34,9 +34,21 @@ class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemLis
                 db.document(id).set(newSetItem)
                     .addOnSuccessListener { Toast.makeText(this, "Set Item Added", Toast.LENGTH_LONG).show() }
                     .addOnFailureListener { Toast.makeText(this, "Failed To Add Set Item!", Toast.LENGTH_LONG).show() }
+                binding.addNewSetItemEditText.setText("")
             } else {
                 Toast.makeText(this, "Set Item must have a name.", Toast.LENGTH_LONG).show()
             }
+        }
+
+        //Set the add and delete buttons to be the same width.
+        //binding.addItemButton.width = binding.deleteItemButton.width
+
+        binding.deleteItemButton.setOnClickListener {
+            Toast.makeText(this, "Please Select An Item To Delete", Toast.LENGTH_LONG).show()
+        }
+
+        binding.backToSelectFAB.setOnClickListener {
+            finish()
         }
 
         setID?.let {

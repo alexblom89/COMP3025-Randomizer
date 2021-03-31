@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COMP3025Assignment</string>
+    <string name="app_name">The Randomizer</string>
     <string name="enter_username">Enter Username</string>
     <string name="enter_password">Enter Password</string>
     <string name="login">Login</string>
@@ -15,4 +15,5 @@
     <string name="delete_item">Delete Item</string>
     <string name="randomize_again">Randomize Again</string>
     <string name="choose_another_set">Choose Another Set</string>
+    <string name="info_blurb">Create sets of items, add items to them and click Randomize to let The Randomizer pick one for you.</string>
 </resources>

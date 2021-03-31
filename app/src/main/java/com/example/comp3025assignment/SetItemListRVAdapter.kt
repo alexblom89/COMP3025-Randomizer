@@ -38,8 +38,15 @@ class SetItemListRVAdapter (
 
         holder.itemView.setOnClickListener {
             itemListener.setItemSelected(setItem)
-            selectedPos = position
-            notifyDataSetChanged()
+
+            //If item is already selected, de-select it.
+            if(holder.itemView.isSelected) {
+                selectedPos = -1
+                notifyDataSetChanged()
+            } else {
+                selectedPos = position
+                notifyDataSetChanged()
+            }
         }
 
         holder.itemView.isSelected = selectedPos == position
