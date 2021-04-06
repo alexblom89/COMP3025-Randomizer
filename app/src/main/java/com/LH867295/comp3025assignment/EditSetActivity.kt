@@ -1,11 +1,11 @@
-package com.example.comp3025assignment
+package com.LH867295.comp3025assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.comp3025assignment.databinding.ActivityEditSetBinding
-import com.example.comp3025assignment.models.SetItem
+import com.LH867295.comp3025assignment.databinding.ActivityEditSetBinding
+import com.LH867295.comp3025assignment.models.SetItem
 import com.google.firebase.firestore.FirebaseFirestore
 
 class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemListener {

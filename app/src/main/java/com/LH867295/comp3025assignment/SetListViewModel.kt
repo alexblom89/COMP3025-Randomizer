@@ -1,10 +1,10 @@
-package com.example.comp3025assignment
+package com.LH867295.comp3025assignment
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.comp3025assignment.models.Set
+import com.LH867295.comp3025assignment.models.Set
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 

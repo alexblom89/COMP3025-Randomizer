@@ -1,4 +1,4 @@
-package com.example.comp3025assignment
+package com.LH867295.comp3025assignment
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.comp3025assignment.databinding.ActivitySelectSetBinding
-import com.example.comp3025assignment.models.Set
+import com.LH867295.comp3025assignment.databinding.ActivitySelectSetBinding
+import com.LH867295.comp3025assignment.models.Set
 
 class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener {
 

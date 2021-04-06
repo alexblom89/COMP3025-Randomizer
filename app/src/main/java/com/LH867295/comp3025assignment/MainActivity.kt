@@ -1,9 +1,9 @@
-package com.example.comp3025assignment
+package com.LH867295.comp3025assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.comp3025assignment.databinding.ActivityMainBinding
+import com.LH867295.comp3025assignment.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

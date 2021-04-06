@@ -1,4 +1,4 @@
-package com.example.comp3025assignment
+package com.LH867295.comp3025assignment
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.example.comp3025assignment.models
+package com.LH867295.comp3025assignment.models
 
 class Set (
     var setID: String?=null,

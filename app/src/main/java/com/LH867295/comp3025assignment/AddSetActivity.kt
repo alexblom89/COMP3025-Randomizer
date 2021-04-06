@@ -1,10 +1,10 @@
-package com.example.comp3025assignment
+package com.LH867295.comp3025assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.comp3025assignment.databinding.ActivityAddSetBinding
-import com.example.comp3025assignment.models.Set
+import com.LH867295.comp3025assignment.databinding.ActivityAddSetBinding
+import com.LH867295.comp3025assignment.models.Set
 import com.google.firebase.firestore.FirebaseFirestore
 
 

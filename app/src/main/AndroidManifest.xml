@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.comp3025assignment">
+    package="com.LH867295.comp3025assignment">
 
     <application
         android:allowBackup="true"
@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.COMP3025Assignment">
-        <activity android:name=".SignInActivity">
+        <activity android:name="com.LH867295.comp3025assignment.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RandomizeSetActivity" />
-        <activity android:name=".EditSetActivity" />
-        <activity android:name=".AddSetActivity" />
-        <activity android:name=".SelectSetActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.LH867295.comp3025assignment.RandomizeSetActivity" />
+        <activity android:name="com.LH867295.comp3025assignment.EditSetActivity" />
+        <activity android:name="com.LH867295.comp3025assignment.AddSetActivity" />
+        <activity android:name="com.LH867295.comp3025assignment.SelectSetActivity" />
+        <activity android:name="com.LH867295.comp3025assignment.MainActivity" />
     </application>
 
 </manifest>

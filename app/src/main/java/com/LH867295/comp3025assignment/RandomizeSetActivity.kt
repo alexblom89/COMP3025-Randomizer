@@ -1,10 +1,10 @@
-package com.example.comp3025assignment
+package com.LH867295.comp3025assignment
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.comp3025assignment.databinding.ActivityRandomizeSetBinding
+import com.LH867295.comp3025assignment.databinding.ActivityRandomizeSetBinding
 
 
 
