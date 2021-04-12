@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/list_element_margin"
+    android:background="@drawable/item_background"
     android:clickable="true"
     android:focusable="true"
-    android:background="@drawable/item_background"
-    >
+    android:gravity="center"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/setNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_weight=".8"
-        tools:text="Set Name"
-        android:textAlignment="center"
         android:gravity="center"
+        android:paddingHorizontal="@dimen/item_padding"
+        android:textAlignment="center"
         android:textSize="20sp"
-        android:paddingHorizontal="@dimen/item_padding"/>
+        tools:text="Set Name" />
 
 </android.widget.LinearLayout>

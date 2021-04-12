@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_list"
+        android:title="@string/view_sets"
+        android:icon="@drawable/view_set_list"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/action_edit_set"
+        android:title="@string/edit_set"
+        android:icon="@drawable/edit_set"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/action_add_set"
+        android:title="@string/add_new_set"
+        android:icon="@drawable/add_new_set"
+        app:showAsAction="ifRoom"
+        />
+</menu>

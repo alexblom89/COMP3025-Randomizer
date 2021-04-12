@@ -7,6 +7,13 @@
     tools:context=".SelectSetActivity"
     android:layout_margin="@dimen/border_margin">
 
+    <include
+        android:id="@+id/mainToolbar"
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/randomizeButton"
@@ -47,6 +54,8 @@
         app:layout_constraintTop_toBottomOf="@+id/addNewSetButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="vertical"
+        app:layout_constraintHeight_max="200dp"
         />
 
     <TextView

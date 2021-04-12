@@ -1,7 +1,10 @@
 package com.LH867295.comp3025assignment
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.LH867295.comp3025assignment.databinding.ActivityEditSetBinding
@@ -60,6 +63,32 @@ class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemLis
                 binding.editSetRecyclerView.adapter = recyclerAdapter
             })
         }
+
+        setSupportActionBar(binding.mainToolbar.toolbar)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.action_add_set -> {
+                startActivity(Intent(applicationContext, AddSetActivity::class.java))
+                return true
+            }
+            R.id.action_edit_set -> {
+//                startActivity(Intent(applicationContext, EditSetActivity::class.java))
+                Toast.makeText(applicationContext, "You're Already Here!", Toast.LENGTH_LONG).show()
+                return true
+            }
+            R.id.action_list -> {
+                startActivity(Intent(applicationContext, SelectSetActivity::class.java))
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun setItemSelected(setItem: SetItem) {

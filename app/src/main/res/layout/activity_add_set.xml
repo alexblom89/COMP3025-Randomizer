@@ -7,6 +7,14 @@
     tools:context=".AddSetActivity"
     android:layout_margin="@dimen/border_margin">
 
+    <include
+        android:id="@+id/mainToolbar"
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/addNewSetTextView"
         android:layout_width="wrap_content"
