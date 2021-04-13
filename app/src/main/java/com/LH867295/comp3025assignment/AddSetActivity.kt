@@ -68,7 +68,8 @@ class AddSetActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.action_add_set -> {
-                startActivity(Intent(applicationContext, AddSetActivity::class.java))
+//                startActivity(Intent(applicationContext, AddSetActivity::class.java))
+                Toast.makeText(applicationContext, "You're Already Here!", Toast.LENGTH_LONG).show()
                 return true
             }
             R.id.action_edit_set -> {
@@ -77,8 +78,7 @@ class AddSetActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_list -> {
-//                startActivity(Intent(applicationContext, SelectSetActivity::class.java))
-                Toast.makeText(applicationContext, "You're Already Here!", Toast.LENGTH_LONG).show()
+                startActivity(Intent(applicationContext, SelectSetActivity::class.java))
                 return true
             }
         }

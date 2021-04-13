@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditSetActivity"
-    android:layout_margin="@dimen/border_margin">
+    android:layout_margin="@dimen/border_margin"
+    tools:context=".EditSetActivity">
 
     <include
         android:id="@+id/mainToolbar"
@@ -42,57 +42,55 @@
         android:id="@+id/editSetRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/element_margin"
+        android:layout_marginTop="@dimen/element_margin"
+        android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSetNameTextView"
-        app:layout_constraintHeight_max="300dp"
-        android:scrollbars="vertical"/>
+        app:layout_constraintTop_toBottomOf="@+id/addItemButton" />
 
     <EditText
         android:id="@+id/addNewSetItemEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/element_margin"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/enter_new_item"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSetRecyclerView"
-        android:layout_margin="@dimen/element_margin"/>
+        app:layout_constraintTop_toBottomOf="@+id/editSetNameTextView" />
 
     <Button
         android:id="@+id/addItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/element_margin"
         android:text="@string/add_item"
         app:layout_constraintEnd_toStartOf="@+id/deleteItemButton"
-        app:layout_constraintTop_toBottomOf="@id/addNewSetItemEditText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/medium_top_margin"/>
+        app:layout_constraintTop_toBottomOf="@id/addNewSetItemEditText" />
 
     <Button
         android:id="@+id/deleteItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/element_margin"
         android:text="@string/delete_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/addItemButton"
-        app:layout_constraintTop_toBottomOf="@id/addNewSetItemEditText"
-        android:layout_marginTop="@dimen/medium_top_margin"
-        />
+        app:layout_constraintTop_toBottomOf="@id/addNewSetItemEditText" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/backToSelectFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/element_margin"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/element_margin"
         app:srcCompat="@drawable/back_arrow" />
 
 
