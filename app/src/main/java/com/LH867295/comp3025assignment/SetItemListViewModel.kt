@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.LH867295.comp3025assignment.models.SetItem
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class SetItemListViewModel(setID: String) : ViewModel() {
     private val setItems : MutableLiveData<List<SetItem>> by lazy {
@@ -15,6 +16,7 @@ class SetItemListViewModel(setID: String) : ViewModel() {
     init {
         val db = FirebaseFirestore.getInstance().collection("setItems")
             .whereEqualTo("setID", setID)
+                .orderBy("name", Query.Direction.ASCENDING)
 
         db.addSnapshotListener { documents, exception ->
             if (exception != null) {
