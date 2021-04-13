@@ -5,11 +5,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.LH867295.comp3025assignment.models.Set
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
 class SetListViewModel : ViewModel() {
 
+    private val auth = FirebaseAuth.getInstance()
     private val sets : MutableLiveData<List<Set>> by lazy {
         MutableLiveData()
     }
@@ -24,7 +26,8 @@ class SetListViewModel : ViewModel() {
 
     private fun loadSets() {
         val db = FirebaseFirestore.getInstance().collection("sets")
-            .orderBy("name", Query.Direction.ASCENDING)
+                .whereEqualTo("userID", auth.currentUser!!.uid).orderBy("name", Query.Direction.ASCENDING)
+                .orderBy("name", Query.Direction.ASCENDING)
 
         db.addSnapshotListener { documents, exception ->
             if(exception != null) {
