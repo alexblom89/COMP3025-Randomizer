@@ -19,6 +19,9 @@ New navigation icon, navigation buttons, tying data to individual users using a 
 Set model. 
 Custom launcher icon. Secured Firebase (each user can only access their own data). 
 
+Known issue: Randomize button on main select set screen will always evaluate each set to be empty, even if not. Just click Randomize button again with a 
+Set that is not empty to move to the Randomize activity.
+
 I had meant to create a custom Dialog using a DialogFragment and inflating the color_dialog.xml file,
 with each button setting the background color of the recyclerview items for the currently selected set,
 however there were multiple bugs that came up from adding the userID field to my Set model. 
