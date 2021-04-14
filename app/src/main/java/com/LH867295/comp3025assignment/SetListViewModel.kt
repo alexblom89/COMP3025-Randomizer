@@ -26,7 +26,7 @@ class SetListViewModel : ViewModel() {
 
     private fun loadSets() {
         val db = FirebaseFirestore.getInstance().collection("sets")
-                .whereEqualTo("userID", auth.currentUser!!.uid).orderBy("name", Query.Direction.ASCENDING)
+                .whereEqualTo("userID", auth.currentUser!!.uid)
                 .orderBy("name", Query.Direction.ASCENDING)
 
         db.addSnapshotListener { documents, exception ->

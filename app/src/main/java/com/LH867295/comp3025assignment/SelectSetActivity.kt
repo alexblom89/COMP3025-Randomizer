@@ -14,6 +14,7 @@ import com.LH867295.comp3025assignment.models.Set
 class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener {
 
     private lateinit var binding : ActivitySelectSetBinding
+    private var setSelected : Set? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +55,14 @@ class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener 
                 return true
             }
             R.id.action_edit_set -> {
-//                startActivity(Intent(applicationContext, EditSetActivity::class.java))
-//                Toast.makeText(applicationContext, "Please Select a Set", Toast.LENGTH_LONG).show()
+                if (setSelected == null)
+                    Toast.makeText(applicationContext, "Please Select a Set", Toast.LENGTH_LONG).show()
+                else {
+                    val intent = Intent(applicationContext, EditSetActivity::class.java)
+                    intent.putExtra("setID", setSelected!!.setID)
+                    intent.putExtra("name", setSelected!!.name)
+                    startActivity(intent)
+                }
                 return true
             }
             R.id.action_list -> {
@@ -68,6 +75,7 @@ class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener 
     }
 
     override fun setSelected(set: Set) {
+        setSelected = set
         var viewModelFactory: SetItemViewModelFactory
         var viewModel: SetItemListViewModel
         val setID = set.setID
@@ -85,9 +93,10 @@ class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener 
             setID?.let {
 
                 viewModelFactory = SetItemViewModelFactory(setID)
-
                 viewModel = ViewModelProvider(this, viewModelFactory).get(SetItemListViewModel::class.java)
-                if (viewModel.getSetItems().value?.size == null)
+                val listSize = viewModel.getSetItems().value?.size
+
+                if (listSize == null)
                     Toast.makeText(this, "Set has no items!", Toast.LENGTH_LONG).show()
                 else {
                     val intent = Intent(this, RandomizeSetActivity::class.java)
@@ -97,13 +106,5 @@ class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener 
                 }
             }
         }
-
-//        binding.mainToolbar.toolbar.menu.getItem(2).setOnMenuItemClickListener {
-//            val intent = Intent(this, EditSetActivity::class.java)
-//            intent.putExtra("setID", set.setID)
-//            intent.putExtra("setName", set.name)
-//            startActivity(intent)
-//            return@setOnMenuItemClickListener true
-//        }
     }
 }

@@ -16,6 +16,7 @@ class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemLis
 
     private lateinit var viewModel: SetItemListViewModel
     private lateinit var viewModelFactory: SetItemViewModelFactory
+    private lateinit var recyclerAdapter: SetItemListRVAdapter
 
     private val db = FirebaseFirestore.getInstance().collection("setItems")
 
@@ -26,22 +27,6 @@ class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemLis
 
         binding.editSetNameTextView.text = intent.getStringExtra("setName")
         val setID = intent.getStringExtra("setID")
-
-        binding.addItemButton.setOnClickListener {
-            if (binding.addNewSetItemEditText.text.toString().isNotEmpty())
-            {
-                //val db = FirebaseFirestore.getInstance().collection("setItems")
-                val id = db.document().id
-
-                val newSetItem = SetItem(id, binding.addNewSetItemEditText.text.toString(), setID)
-                db.document(id).set(newSetItem)
-                    .addOnSuccessListener { Toast.makeText(this, "Set Item Added", Toast.LENGTH_LONG).show() }
-                    .addOnFailureListener { Toast.makeText(this, "Failed To Add Set Item!", Toast.LENGTH_LONG).show() }
-                binding.addNewSetItemEditText.setText("")
-            } else {
-                Toast.makeText(this, "Set Item must have a name.", Toast.LENGTH_LONG).show()
-            }
-        }
 
         //Set the add and delete buttons to be the same width.
         //binding.addItemButton.width = binding.deleteItemButton.width
@@ -59,9 +44,25 @@ class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemLis
 
             viewModel = ViewModelProvider(this, viewModelFactory).get(SetItemListViewModel::class.java)
             viewModel.getSetItems().observe(this, { setItems ->
-                var recyclerAdapter = SetItemListRVAdapter(this, setItems, this)
+                recyclerAdapter = SetItemListRVAdapter(this, setItems, this)
                 binding.editSetRecyclerView.adapter = recyclerAdapter
             })
+        }
+
+        binding.addItemButton.setOnClickListener {
+            if (binding.addNewSetItemEditText.text.toString().isNotEmpty())
+            {
+                //val db = FirebaseFirestore.getInstance().collection("setItems")
+                val id = db.document().id
+
+                val newSetItem = SetItem(id, binding.addNewSetItemEditText.text.toString(), setID)
+                db.document(id).set(newSetItem)
+                        .addOnSuccessListener { Toast.makeText(this, "Set Item Added", Toast.LENGTH_LONG).show() }
+                        .addOnFailureListener { Toast.makeText(this, "Failed To Add Set Item!", Toast.LENGTH_LONG).show() }
+                binding.addNewSetItemEditText.setText("")
+            } else {
+                Toast.makeText(this, "Set Item must have a name.", Toast.LENGTH_LONG).show()
+            }
         }
 
         setSupportActionBar(binding.mainToolbar.toolbar)
@@ -92,6 +93,8 @@ class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemLis
     }
 
     override fun setItemSelected(setItem: SetItem) {
+
+
         binding.deleteItemButton.setOnClickListener {
             setItem.setItemID?.let {
                 it1 -> db.document(it1)
@@ -99,6 +102,10 @@ class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemLis
                 .addOnSuccessListener { Toast.makeText(this, "Set Item Deleted", Toast.LENGTH_LONG).show() }
                 .addOnFailureListener { Toast.makeText(this, "Set Item Could Not Be Deleted", Toast.LENGTH_LONG).show() }
             }
+            recyclerAdapter.notifyDataSetChanged()
+//            recyclerAdapter.notifyItemRemoved(recyclerAdapter.setItems.indexOf(setItem))
+//            val pos = recyclerAdapter.setItems.indexOf(setItem)
+//            recyclerAdapter.notifyItemRemoved(pos)
         }
     }
 }
