@@ -83,10 +83,9 @@ class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener 
         binding.editSetButton.setOnClickListener {
             val intent = Intent(this, EditSetActivity::class.java)
             intent.putExtra("setID", set.setID)
-            intent.putExtra("setName", set.name)
+            intent.putExtra("name", set.name)
             startActivity(intent)
         }
-
 
         binding.randomizeButton.setOnClickListener {
             //Check if set has any items.
@@ -94,14 +93,14 @@ class SelectSetActivity : AppCompatActivity(), SetListRVAdapter.SetItemListener 
 
                 viewModelFactory = SetItemViewModelFactory(setID)
                 viewModel = ViewModelProvider(this, viewModelFactory).get(SetItemListViewModel::class.java)
-                val listSize = viewModel.getSetItems().value?.size
+                val listSize = viewModel.getSetItems().value
 
                 if (listSize == null)
                     Toast.makeText(this, "Set has no items!", Toast.LENGTH_LONG).show()
                 else {
                     val intent = Intent(this, RandomizeSetActivity::class.java)
                     intent.putExtra("setID", setID)
-                    intent.putExtra("setName", set.name)
+                    intent.putExtra("name", set.name)
                     startActivity(intent)
                 }
             }

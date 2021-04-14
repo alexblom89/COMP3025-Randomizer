@@ -8,13 +8,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.LH867295.comp3025assignment.databinding.ActivityRandomizeSetBinding
-import com.LH867295.comp3025assignment.models.Set
+
 
 
 class RandomizeSetActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRandomizeSetBinding
-    val setID = intent.getStringExtra("setID")
-    val setName = intent.getStringExtra("name")
+    private var setID : String? = null
+    private var name : String? = null
 
     private lateinit var viewModel : SetItemListViewModel
     private lateinit var viewModelFactory: SetItemViewModelFactory
@@ -23,6 +23,9 @@ class RandomizeSetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRandomizeSetBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setID = intent.getStringExtra("setID")
+        name = intent.getStringExtra("name")
 
         getRandomItem(setID)
 
@@ -51,7 +54,7 @@ class RandomizeSetActivity : AppCompatActivity() {
             R.id.action_edit_set -> {
                 val intent = Intent(applicationContext, EditSetActivity::class.java)
                 intent.putExtra("setID", setID)
-                intent.putExtra("name", setName)
+                intent.putExtra("name", name)
                 startActivity(intent)
 //                Toast.makeText(applicationContext, "Please Select a Set", Toast.LENGTH_LONG).show()
                 return true

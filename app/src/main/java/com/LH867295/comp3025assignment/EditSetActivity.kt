@@ -3,9 +3,11 @@ package com.LH867295.comp3025assignment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.LH867295.comp3025assignment.databinding.ActivityEditSetBinding
 import com.LH867295.comp3025assignment.models.SetItem
@@ -103,9 +105,6 @@ class EditSetActivity : AppCompatActivity(), SetItemListRVAdapter.SetItemItemLis
                 .addOnFailureListener { Toast.makeText(this, "Set Item Could Not Be Deleted", Toast.LENGTH_LONG).show() }
             }
             recyclerAdapter.notifyDataSetChanged()
-//            recyclerAdapter.notifyItemRemoved(recyclerAdapter.setItems.indexOf(setItem))
-//            val pos = recyclerAdapter.setItems.indexOf(setItem)
-//            recyclerAdapter.notifyItemRemoved(pos)
         }
     }
 }

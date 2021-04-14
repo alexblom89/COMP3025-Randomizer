@@ -59,7 +59,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSetNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/changeColorButton" />
 
     <Button
         android:id="@+id/addItemButton"
@@ -92,6 +92,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/back_arrow" />
+
+    <Button
+        android:id="@+id/changeColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_set_color"
+        android:layout_marginTop="@dimen/element_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editSetNameTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
